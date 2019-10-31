@@ -8,14 +8,9 @@
     "build:prod": "npm run build",
     "lint": "eslint --ext .js,.ts src/**",
     "lint:fix": "npm run lint -- --fix",
-    "pre-push": "npm run lint && npm run test && npm run build:prod && npm run tpl-repo:check",
-    "preinstall": "node ./tools/check-yarn.js",
     "test": "jest -c jest.config.js",
     "test:watch": "npm run test -- --watch",
-    "tpl-repo": "tools/merge-with-repository-template.sh",
-    "tpl-repo:check": "npm run tpl-repo -- check",
-    "tpl-repo:merge": "npm run tpl-repo -- merge",
-    "db:docker:dev": "docker-compose -f docker/docker-compose.dev.yml up",
+    "db:docker:dev": "docker-compose -f docker/docker-compose.dev.yml up; docker-compose -f docker/docker-compose.dev.yml down",
     "orm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "migrations:diff": "npm run orm -- migration:generate --name",
     "migrations:run": "npm run orm -- migration:run",
@@ -53,17 +48,10 @@
     "eslint-plugin-import": "~2.18.2",
     "eslint-plugin-promise": "~4.2.1",
     "eslint-plugin-unicorn": "~12.1.0",
-    "husky": "~3.0.8",
     "jest": "~24.9.0",
     "rimraf": "~3.0.0",
     "ts-node": "~8.4.1",
     "tsconfig-paths": "~3.9.0",
     "typescript": "~3.6.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run pre-push",
-      "post-merge": "IS_YARN=true yarn install"
-    }
   }
 }
