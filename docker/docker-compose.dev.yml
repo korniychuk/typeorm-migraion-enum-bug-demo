@@ -1,0 +1,21 @@
+# Use postgres/example user/password credentials
+version: '3.7'
+
+services:
+
+  db:
+    build: ./postgres
+    restart: on-failure
+    environment:
+      POSTGRES_PASSWORD: example
+      APP_DB: test_db
+      APP_USER: test_db_user
+      APP_PASSWORD: 111
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

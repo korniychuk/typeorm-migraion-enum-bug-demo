@@ -14,7 +14,12 @@
     "test:watch": "npm run test -- --watch",
     "tpl-repo": "tools/merge-with-repository-template.sh",
     "tpl-repo:check": "npm run tpl-repo -- check",
-    "tpl-repo:merge": "npm run tpl-repo -- merge"
+    "tpl-repo:merge": "npm run tpl-repo -- merge",
+    "db:docker:dev": "docker-compose -f docker/docker-compose.dev.yml up",
+    "orm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migrations:diff": "npm run orm -- migration:generate --name",
+    "migrations:run": "npm run orm -- migration:run",
+    "migrations:revert": "npm run orm -- migration:revert"
   },
   "repository": {
     "type": "git",
@@ -25,12 +30,21 @@
     "url": "https://github.com/korniychuk/wallaby-ts-webpack-starter/issues"
   },
   "homepage": "https://github.com/korniychuk/wallaby-ts-webpack-starter#readme",
-  "dependencies": {},
+  "dependencies": {
+    "change-case": "~3.1.0",
+    "lodash": "~4.17.15",
+    "pg": "~7.12.1",
+    "pluralize": "~8.0.0",
+    "typeorm": "~0.2.20"
+  },
   "devDependencies": {
     "@babel/core": "~7.6.4",
     "@babel/preset-env": "~7.6.3",
     "@babel/preset-typescript": "~7.6.0",
     "@types/jest": "~24.0.18",
+    "@types/lodash": "~4.14.144",
+    "@types/node": "~12.12.3",
+    "@types/pluralize": "~0.0.29",
     "@typescript-eslint/eslint-plugin": "~2.3.3",
     "@typescript-eslint/parser": "~2.3.3",
     "eslint": "~6.5.1",
@@ -42,6 +56,8 @@
     "husky": "~3.0.8",
     "jest": "~24.9.0",
     "rimraf": "~3.0.0",
+    "ts-node": "~8.4.1",
+    "tsconfig-paths": "~3.9.0",
     "typescript": "~3.6.4"
   },
   "husky": {
