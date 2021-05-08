@@ -30,7 +30,7 @@
     "lodash": "~4.17.15",
     "pg": "~7.12.1",
     "pluralize": "~8.0.0",
-    "typeorm": "~0.2.20"
+    "typeorm": "~0.2.25"
   },
   "devDependencies": {
     "@babel/core": "~7.6.4",
