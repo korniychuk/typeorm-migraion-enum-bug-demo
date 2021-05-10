@@ -27,7 +27,7 @@
   "homepage": "https://github.com/korniychuk/wallaby-ts-webpack-starter#readme",
   "dependencies": {
     "change-case": "~3.1.0",
-    "lodash": "~4.17.15",
+    "lodash": "~4.17.21",
     "pg": "~7.12.1",
     "pluralize": "~8.0.0",
     "typeorm": "~0.2.20"
